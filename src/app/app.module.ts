@@ -11,7 +11,6 @@ import { HomeModule } from './home/home.module';
 import { ShellModule } from './shell/shell.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AboutModule } from './about/about.module';
 import { ChallengeListComponent } from './challenge-list/challenge-list.component';
 
 @NgModule({
@@ -24,7 +23,6 @@ import { ChallengeListComponent } from './challenge-list/challenge-list.componen
     CoreModule,
     SharedModule,
     ShellModule,
-    AboutModule,
     HomeModule,
     AppRoutingModule, // must be imported as the last module as it contains the fallback route
   ],
