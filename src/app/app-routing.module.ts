@@ -1,4 +1,3 @@
-import { ChallengeListComponent } from './challenge-list/challenge-list.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -14,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'challenge-list',
-    component: ChallengeListComponent,
+    loadChildren: () => import('./challenge-list/challenge-list.module').then((m) => m.ChallengeListModule),
   },
 ];
 
