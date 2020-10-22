@@ -1,7 +1,7 @@
 import { env } from './.env';
 
 export const environment = {
-  production: false,
+  production: true,
   hmr: true,
   version: env.npm_package_version + '-dev',
   chuckNorrisServerUrl: '/api',

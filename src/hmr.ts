@@ -1,10 +1,9 @@
-import { enableProdMode, NgModuleRef, ApplicationRef } from '@angular/core';
+import { NgModuleRef, ApplicationRef, enableProdMode } from '@angular/core';
 import { createNewHosts } from '@angularclass/hmr';
 
 export function hmrBootstrap(module: any, bootstrap: () => Promise<NgModuleRef<any>>) {
   let ngModule: NgModuleRef<any>;
   module.hot.accept();
-
   bootstrap()
     .then((mod) => (ngModule = mod))
     .catch((err) => console.error(err));
