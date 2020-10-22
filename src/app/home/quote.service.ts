@@ -14,6 +14,8 @@ export interface RandomQuoteContext {
 
 @Injectable({
   providedIn: 'root',
+  useFactory: (http: HttpClient) => new QuoteService(http),
+  deps: [HttpClient],
 })
 export class QuoteService {
   constructor(private httpClient: HttpClient) {}
