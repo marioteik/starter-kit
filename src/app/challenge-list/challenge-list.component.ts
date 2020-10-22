@@ -1,3 +1,4 @@
+import { ChallengeListService } from './services/challenge-list.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./challenge-list.component.scss'],
 })
 export class ChallengeListComponent implements OnInit {
-  constructor() {}
+  constructor(private challengeSevice: ChallengeListService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.challengeSevice.getUsers().subscribe((users) => {
+      console.log(users);
+    });
+  }
 }
