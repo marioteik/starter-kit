@@ -14,6 +14,7 @@ export class ChallengeListComponent implements OnInit {
 
   ngOnInit(): void {
     this.challengeSevice.getUsers().subscribe((users: Users[]) => {
+      console.log(users);
       this.users = users;
     });
   }
