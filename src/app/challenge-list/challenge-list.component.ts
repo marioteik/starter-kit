@@ -16,11 +16,14 @@ export class ChallengeListComponent implements OnInit {
   constructor(private challengeSevice: ChallengeListService, private changeDetector: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.challengeSevice.getUser().subscribe((users: Users[]) => {
-      console.log(users);
-      this.users = users;
-      this.changeDetector.detectChanges();
-    });
+    this.challengeSevice.getUser().subscribe(
+      (users: Users[]) => {
+        console.log(users);
+        this.users = users;
+        this.changeDetector.detectChanges();
+      },
+      (error: any) => console.log('Erro ao obter usuários')
+    );
   }
 
   deleteUser(id: number) {
