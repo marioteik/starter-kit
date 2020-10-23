@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./challenge-list.component.scss'],
 })
 export class ChallengeListComponent implements OnInit {
-  users: Users[];
-
   constructor(private challengeSevice: ChallengeListService) {}
+
+  users: Users[];
 
   ngOnInit(): void {
     this.challengeSevice.getGitUsers().subscribe((users: Users[]) => {
@@ -24,5 +24,9 @@ export class ChallengeListComponent implements OnInit {
       console.log(users);
       this.users = users;
     });
+  }
+
+  trackById(index: number, item: any) {
+    return item.id;
   }
 }

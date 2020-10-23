@@ -1,3 +1,5 @@
+import { Users } from './../../../model/users';
+import { ChallengeListService } from './../../services/challenge-list.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
