@@ -13,7 +13,14 @@ export class ChallengeListComponent implements OnInit {
   constructor(private challengeSevice: ChallengeListService) {}
 
   ngOnInit(): void {
-    this.challengeSevice.getUsers().subscribe((users: Users[]) => {
+    this.challengeSevice.getGitUsers().subscribe((users: Users[]) => {
+      console.log(users);
+      this.users = users;
+    });
+  }
+
+  deleteUser(id: number) {
+    this.challengeSevice.deleteUser(id).subscribe((users: Users[]) => {
       console.log(users);
       this.users = users;
     });

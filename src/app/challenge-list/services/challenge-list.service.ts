@@ -14,7 +14,11 @@ const routes = {
 export class ChallengeListService {
   constructor(private httpClient: HttpClient) {}
 
-  getUsers() {
+  getGitUsers() {
     return this.httpClient.get(routes.users()).pipe(catchError(() => of('Error, could not load users')));
+  }
+
+  deleteUser(id: number) {
+    return this.httpClient.delete(routes.users() + '/' + id).pipe(catchError(() => of('Error, could not delete user')));
   }
 }

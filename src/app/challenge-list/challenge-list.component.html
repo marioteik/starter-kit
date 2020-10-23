@@ -14,12 +14,12 @@
         <li class="list-group-item w-25">{{ user.login }}</li>
         <li class="list-group-item w-25">{{ user.type }}</li>
         <button type="button" class="ml-2 btn btn-primary">Editar</button>
-        <button type="button" class="ml-2 btn btn-danger">Excluir</button>
+        <button type="button" class="ml-2 btn btn-danger" (click)="deleteUser(user.id)">Excluir</button>
       </ul>
     </div>
     <div class="col-lg-5 col-md-5 ml-5">
       <div class="col-lg-8 col-md-8">
-        <h3 class="text-center">CRUD GitHub</h3>
+        <h3 class="text-center">Get Users GitHub</h3>
       </div>
       <ul class="list-group list-group-horizontal mb-2">
         <li class="list-group-item w-25"><b>Id</b></li>
