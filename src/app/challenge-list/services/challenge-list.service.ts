@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { catchError } from 'rxjs/operators';
+import { Users } from './../../model/users';
+import { catchError, take } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 const routes = {
@@ -14,11 +15,28 @@ const routes = {
 export class ChallengeListService {
   constructor(private httpClient: HttpClient) {}
 
-  getGitUsers() {
-    return this.httpClient.get(routes.users()).pipe(catchError(() => of('Error, could not load users')));
+  getUser() {
+    return this.httpClient.get(routes.users()).pipe(
+      take(1),
+      catchError(() => of('Erro ao carregar usuários'))
+    );
+  }
+
+  PostUser(user: Users) {
+    return this.httpClient.post(`${routes.users()}`, user).pipe(
+      take(1),
+      catchError(() => of('Erro ao inserir usuário'))
+    );
+  }
+
+  putUser(id: number, user: Users) {
+    return this.httpClient.put(`${routes.users()} / ${id}`, user).pipe(
+      take(1),
+      catchError(() => of('Erro ao editar usuário'))
+    );
   }
 
   deleteUser(id: number) {
-    return this.httpClient.delete(routes.users() + '/' + id).pipe(catchError(() => of('Error, could not delete user')));
+    return this.httpClient.delete(routes.users() + '/' + id).pipe(catchError(() => of('Erro ao deletar usuário')));
   }
 }
