@@ -1,3 +1,4 @@
+import { FormResolver } from './guards/form.resolver';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,5 +11,6 @@ import { FormListComponent } from './list-component/form-list/form-list.componen
 @NgModule({
   declarations: [ChallengeListComponent, ListComponent, FormListComponent],
   imports: [CommonModule, ChallengeListRoutinModule, FormsModule],
+  providers: [FormResolver],
 })
 export class ChallengeListModule {}

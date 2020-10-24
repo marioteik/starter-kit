@@ -28,8 +28,8 @@ export class ChallengeListComponent implements OnInit {
   }
 
   editarUser(id: number) {
-    //this.router.navigate(['/challenge-list', id]);
-    location.assign('/challenge-list/' + id);
+    this.router.navigate(['/challenge-list', id]);
+    //location.assign('/challenge-list/' + id);
   }
 
   saveUser() {
@@ -39,12 +39,13 @@ export class ChallengeListComponent implements OnInit {
 
   deleteUser(id: number) {
     this.challengeSevice.deleteUser(id).subscribe((users: Users[]) => {
-      this.users = users;
+      this.users.concat(users);
+      this.ngOnInit();
       //location.assign('/challenge-list');
     });
   }
 
-  trackById(index: number, item: any) {
+  trackById(index: number, item: Users) {
     return item.id;
   }
 }

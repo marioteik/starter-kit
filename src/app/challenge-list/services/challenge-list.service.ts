@@ -44,6 +44,9 @@ export class ChallengeListService {
   }
 
   deleteUser(id: number) {
-    return this.httpClient.delete(routes.users() + '/' + id).pipe(catchError(() => of('Erro ao deletar usuário')));
+    return this.httpClient.delete(routes.users() + '/' + id).pipe(
+      take(1),
+      catchError(() => of('Erro ao deletar usuário'))
+    );
   }
 }
