@@ -15,22 +15,29 @@ const routes = {
 export class ChallengeListService {
   constructor(private httpClient: HttpClient) {}
 
-  getUser() {
+  getUsers() {
     return this.httpClient.get(routes.users()).pipe(
       take(1),
       catchError(() => of('Erro ao carregar usuários'))
     );
   }
 
+  getUserById(id: number) {
+    return this.httpClient.get(routes.users() + '/' + id).pipe(
+      take(1),
+      catchError(() => of('Erro ao carregar usuários'))
+    );
+  }
+
   PostUser(user: Users) {
-    return this.httpClient.post(`${routes.users()}`, user).pipe(
+    return this.httpClient.post(routes.users(), user).pipe(
       take(1),
       catchError(() => of('Erro ao inserir usuário'))
     );
   }
 
   putUser(id: number, user: Users) {
-    return this.httpClient.put(`${routes.users()} / ${id}`, user).pipe(
+    return this.httpClient.put(routes.users() + '/' + id, user).pipe(
       take(1),
       catchError(() => of('Erro ao editar usuário'))
     );
