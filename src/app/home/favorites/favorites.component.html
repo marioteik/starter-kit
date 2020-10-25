@@ -1,0 +1,18 @@
+<table class="table table-sm px-5">
+  <thead>
+    <tr>
+      <th scope="col">Rating</th>
+      <th scope="col">Create At</th>
+      <th scope="col">Quote</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let favorite of favorites; trackBy: trackById">
+      <td><app-favorite-rating [rating]="favorite.rating"></app-favorite-rating></td>
+      <td>{{ favorite.createdAt | localDateTime }}</td>
+      <td><app-favorite-quote [quote]="favorite.quote"></app-favorite-quote></td>
+      <td><app-favorite-delete [id]="favorite.id"></app-favorite-delete></td>
+    </tr>
+  </tbody>
+</table>

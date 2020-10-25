@@ -4,7 +4,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CoreModule } from '@core';
 import { SharedModule } from '@shared';
 import { HomeComponent } from './home.component';
-import { QuoteService } from './quote.service';
+import { QuoteService } from '../services/quote.service';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;

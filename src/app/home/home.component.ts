@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 
-import { QuoteService } from './quote.service';
+import { QuoteService } from '../services/quote.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private quoteService: QuoteService) {}
 
-  ngOnInit() {
+  loadNewQuote() {
     this.isLoading = true;
     this.quoteService
       .getRandomQuote({ category: 'dev' })
@@ -27,4 +27,10 @@ export class HomeComponent implements OnInit {
         this.quote = quote;
       });
   }
+
+  ngOnInit() {
+    this.loadNewQuote();
+  }
+
+  addToFavorites = this.quoteService.addToFavorites;
 }
