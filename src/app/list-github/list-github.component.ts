@@ -9,11 +9,15 @@ import { ListGithubService } from './service/list-github-service.service';
 export class ListGithubComponent implements OnInit {
   constructor(private listGithubService: ListGithubService) {}
 
-  items = new Array(1000);
+  users: any = [];
 
   ngOnInit(): void {
     this.listGithubService.getUsers().subscribe((users) => {
-      console.log(users);
+      this.users = users;
     });
+  }
+
+  trackById(index: number, item: any) {
+    return item.id;
   }
 }
