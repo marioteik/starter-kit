@@ -75,7 +75,8 @@
           "options": {
             "browserTarget": "ng-x-rocket:build",
             "hmr": true,
-            "hmrWarning": false
+            "hmrWarning": false,
+            "proxyConfig": "proxy.conf.js"
           },
           "configurations": {
             "production": {
