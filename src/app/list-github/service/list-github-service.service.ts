@@ -10,13 +10,10 @@ const routes = {
 @Injectable({
   providedIn: 'root',
 })
-export class ListGithubServiceService {
+export class ListGithubService {
   constructor(private httpClient: HttpClient) {}
 
   getUsers() {
-    return this.httpClient.get(routes.users()).pipe(
-      map((body: any) => body.value),
-      catchError(() => of(`Error, could not load users`))
-    );
+    return this.httpClient.get(routes.users()).pipe(catchError(() => of(`Error, could not load users`)));
   }
 }
