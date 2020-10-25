@@ -17,7 +17,7 @@ const proxyConfig = [
   {
     context: '/github',
     pathRewrite: { '^/github': '' },
-    target: 'https://api.github.com',
+    target: 'http://localhost:3000',
     changeOrigin: true,
     secure: false,
   },
