@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -12,6 +13,7 @@ import { Users } from './../../../model/users';
 export class FormListComponent implements OnInit {
   user: Users = new Users();
   id: number;
+  inscricao: Subscription;
   salvar: boolean = false;
   editar: boolean = false;
   title: string;
@@ -19,28 +21,23 @@ export class FormListComponent implements OnInit {
   constructor(private route: ActivatedRoute, private challengeSevice: ChallengeListService, private router: Router) {}
 
   ngOnInit(): void {
-    this.route.data.subscribe((info: { user: Users }) => {
-      this.user = info.user;
+    this.inscricao = this.route.data.subscribe((info: { user: Users }) => {
+      if (info.user.id != null) {
+        this.user = info.user;
+
+        this.editar = true;
+        this.title = 'Edit';
+        this.salvar = false;
+      } else {
+        this.salvar = true;
+        this.title = 'Save';
+      }
     });
-    this.editar = true;
-    /*
-    this.id = this.route.snapshot.params['id'];
-    if (!isNaN(this.id)) {
-      this.challengeSevice.getUserById(this.id).subscribe((user: Users) => {
-        this.user = user;
-      });
-      this.editar = true;
-      this.title = "Edit";
-    } else {
-      this.salvar = true;
-      this.title = "Save"
-    } */
   }
 
   saveUser() {
     this.challengeSevice.PostUser(this.user).subscribe((user: Users) => {
       this.user = user;
-      console.log(this.user);
       location.assign('/challenge-list');
     });
   }
@@ -48,9 +45,11 @@ export class FormListComponent implements OnInit {
   editUser() {
     this.challengeSevice.putUser(this.user.id, this.user).subscribe((user: Users) => {
       this.user = user;
-      console.log(this.user);
       this.router.navigate(['/challenge-list']);
-      //location.assign('/challenge-list');
     });
+  }
+
+  ngOnDestroy() {
+    this.inscricao.unsubscribe();
   }
 }
