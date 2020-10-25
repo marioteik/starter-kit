@@ -1,12 +1,13 @@
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 
 import { ChallengeListService } from './../../services/challenge-list.service';
 import { Users } from './../../../model/users';
 
 @Component({
   selector: 'app-form-list',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './form-list.component.html',
   styleUrls: ['./form-list.component.scss'],
 })
@@ -18,7 +19,12 @@ export class FormListComponent implements OnInit {
   editar: boolean = false;
   title: string;
 
-  constructor(private route: ActivatedRoute, private challengeSevice: ChallengeListService, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private changeDetector: ChangeDetectorRef,
+    private challengeSevice: ChallengeListService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.inscricao = this.route.data.subscribe((info: { user: Users }) => {
@@ -28,6 +34,7 @@ export class FormListComponent implements OnInit {
         this.editar = true;
         this.title = 'Edit';
         this.salvar = false;
+        this.changeDetector.detectChanges();
       } else {
         this.salvar = true;
         this.title = 'Save';

@@ -10,7 +10,6 @@ export class FormResolver implements Resolve<Users> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
     let id = route.params['id'];
-
     if (isNaN(id)) {
       return NaN;
     }
