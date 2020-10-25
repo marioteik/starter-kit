@@ -9,7 +9,9 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 export class FavoriteRatingComponent implements OnInit {
   @Input() rating: number;
 
-  constructor() {}
+  constructor() {
+    console.log('nova instancia do rating');
+  }
 
   ngOnInit(): void {}
 }

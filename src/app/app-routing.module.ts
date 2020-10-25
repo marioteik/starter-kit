@@ -11,10 +11,6 @@ const routes: Routes = [
     path: 'about',
     loadChildren: () => import('./about/about.module').then((m) => m.AboutModule),
   },
-  {
-    path: 'favorites',
-    loadChildren: () => import('./favorites/favorites.module').then((m) => m.FavoritesModule),
-  },
 ];
 
 @NgModule({

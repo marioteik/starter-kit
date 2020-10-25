@@ -13,7 +13,9 @@ export class FavoritesComponent implements OnInit {
   favorites: Favorite[];
   isLoading = false;
 
-  constructor(private quoteService: QuoteService) {}
+  constructor(private quoteService: QuoteService) {
+    console.log('instanciamento do componente favorites');
+  }
 
   ngOnInit() {
     this.quoteService.getFavorites().subscribe((favorites: Favorite[]) => (this.favorites = favorites));
