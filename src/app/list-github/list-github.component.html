@@ -1,1 +1,13 @@
-<p>list-github works!</p>
+<table>
+  <thead>
+    <th>index</th>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let item of items; let i = index">
+      <td>
+        {{ i }}
+      </td>
+    </tr>
+  </tbody>
+</table>

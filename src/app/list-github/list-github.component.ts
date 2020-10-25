@@ -8,5 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ListGithubComponent implements OnInit {
   constructor() {}
 
+  items = new Array(1000);
+
   ngOnInit(): void {}
 }
