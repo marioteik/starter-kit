@@ -1,0 +1,16 @@
+.card:hover {
+  border: 1px solid blue;
+  top: -1rem;
+}
+
+.card {
+  cursor: pointer;
+  min-width: 200px;
+  margin: 0.5rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-selected {
+  background-color: blue !important;
+  color: white !important;
+}

@@ -1,0 +1,15 @@
+<div [ngClass]="cardClass">
+  <img src="{{ user.avatar_url }}" class="card-img-top" alt="photo-{{ user.name }}" />
+  <div class="card-body">
+    <h5 class="card-title">{{ user.name }}</h5>
+    <h6>{{ user.email ? user.email : 'without email : (' }}</h6>
+    <div class="card-text">
+      <p>{{ user.bio ? user.bio : 'without bio : (' }}</p>
+      <ul>
+        <li>Public repos: {{ user.public_repos }}</li>
+        <li>Followers: {{ user.followers }}</li>
+        <li>Following: {{ user.following }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
