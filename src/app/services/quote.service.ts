@@ -39,6 +39,7 @@ export class QuoteService {
         quote,
         id: quote,
         rating: 0,
+        createdAt: new Date(),
       });
     }
   }
