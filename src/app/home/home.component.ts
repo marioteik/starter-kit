@@ -31,4 +31,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.loadNewQuote();
   }
+
+  addToFavorites = this.quoteService.addToFavorites;
 }

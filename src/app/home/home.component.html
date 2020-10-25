@@ -8,7 +8,7 @@
     <q [hidden]="isLoading">{{ quote }}</q>
     <div>
       <button (click)="loadNewQuote()" [disabled]="isLoading">New Quote</button>
-      <button>Add to favorite</button>
+      <button (click)="addToFavorites(quote)">Add to favorite</button>
     </div>
   </div>
 </div>

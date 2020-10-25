@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { QuoteService } from '@app/services/quote.service';
+import { Favorite } from '@app/types';
 
 import { environment } from '@env/environment';
 
@@ -8,18 +10,25 @@ import { environment } from '@env/environment';
   styleUrls: ['./favorites.component.scss'],
 })
 export class FavoritesComponent implements OnInit {
-  version: string | null = environment.version;
-  favorites: Array<string> = [
-    'Meu favorito numero 1',
-    'Meu favorito numero 2',
-    'Meu favorito numero 3',
-    'Meu favorito numero 4',
-  ];
-  constructor() {}
+  favorites: Favorite[];
+  isLoading = false;
 
-  ngOnInit() {}
+  constructor(private quoteService: QuoteService) {}
+
+  ngOnInit() {
+    this.quoteService.getFavorites().subscribe((favorites: Favorite[]) => (this.favorites = favorites));
+  }
 
   trackById(index: number, item: any) {
     if (item) return index;
+  }
+
+  deleteFromFavorites = this.quoteService.deleteFromFavorites;
+
+  updateRating(favorite: Favorite, newRating: number) {
+    this.quoteService.updateFavorite(favorite.id, {
+      ...favorite,
+      rating: newRating,
+    });
   }
 }

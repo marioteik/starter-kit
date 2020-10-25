@@ -6,7 +6,12 @@
   </div>
   <ul>
     <li *ngFor="let favorite of favorites; trackBy: trackById">
-      {{ favorite }}
+      {{ favorite.quote }} -
+      <span
+        ><span translate>rating</span>:
+        <input (change)="updateRating(favorite, $event.target.value)" type="text" value="{{ favorite.rating }}" />
+        <button (click)="deleteFromFavorites(favorite.id)">XX</button></span
+      >
     </li>
   </ul>
 </div>
