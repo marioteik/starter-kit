@@ -23,7 +23,6 @@ import { AboutModule } from './about/about.module';
     CoreModule,
     SharedModule,
     ShellModule,
-    AboutModule,
     HomeModule,
     AppRoutingModule, // must be imported as the last module as it contains the fallback route
   ],
