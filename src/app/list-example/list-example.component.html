@@ -1,0 +1,27 @@
+<h1>Usuários GIT</h1>
+<input type="text" #nome>
+<button (click)="adicionarUsuario(nome.value)">Adicionar</button>
+<table>
+    <thead>
+        <th>
+
+        </th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users; trackBy: trackById">
+            <td>
+                <app-userid [id]=user.id></app-userid>
+            </td>
+            <td>
+                <app-user-login [id]=user.login></app-user-login>
+                {{user.login}}
+            </td>
+            <td>
+                <app-user-type [id]=user.type></app-user-type>
+            </td>
+            <td>
+                <button (click)="removerUsuario(user.id)">Remover</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
