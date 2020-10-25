@@ -12,7 +12,7 @@
       <td><app-favorite-rating [rating]="favorite.rating"></app-favorite-rating></td>
       <td>{{ favorite.createdAt | localDateTime }}</td>
       <td><app-favorite-quote [quote]="favorite.quote"></app-favorite-quote></td>
-      <td><app-favorite-delete></app-favorite-delete></td>
+      <td><app-favorite-delete [id]="favorite.id"></app-favorite-delete></td>
     </tr>
   </tbody>
 </table>
