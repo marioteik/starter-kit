@@ -7,7 +7,7 @@
     <td>...</td>
   </thead>
   <tbody>
-    <tr *ngFor="let user of responseUsers.data">
+    <tr *ngFor="let user of responseUsers.data; trackBy: trackById">
       <td>{{ user.first_name }}</td>
       <td>{{ user.last_name }}</td>
       <td>

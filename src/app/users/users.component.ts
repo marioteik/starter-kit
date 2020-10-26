@@ -18,4 +18,8 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUsers().subscribe((res) => (this.responseUsers = res));
   }
+
+  trackById(index: number, item: any) {
+    return item.id;
+  }
 }
