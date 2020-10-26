@@ -13,7 +13,7 @@
         <td>
           <br />
           <input type="checkbox" [checked]="todo.completed" />
-          {{ todo.title }}
+          {{ todo.title | uppercase }}
           <br />
           <a [routerLink]="['/todo', todo.id]">Edit</a>
         </td>
