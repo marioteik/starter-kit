@@ -18,6 +18,8 @@
       </td>
       <td>
         <app-type-row [userType]="user.type"></app-type-row>
+        <input #newUserType />
+        <button (click)="editUser(user.id, user.avatar_url, user.type, newUserType.value)">Edit</button>
       </td>
       <td>
         <button (click)="remove(user.id)">Remove</button>
