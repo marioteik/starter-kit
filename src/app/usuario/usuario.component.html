@@ -1,0 +1,93 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Gerenciamento de usuarios</li>
+  </ol>
+</nav>
+<div class="container">
+  <div class="card add-usuario">
+    <h5 class="card-header">Adicionar/Atualizar usuário</h5>
+    <div class="card-body">
+      <form id="add-form" (ngSubmit)="f.form.valid && saveUsuario(f)" #f="ngForm" novalidate>
+        <div class="form-group">
+          <label for="id">Id</label>
+          <input
+            type="text"
+            [(ngModel)]="usuario.id"
+            id="id"
+            name="id"
+            #id="ngModel"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': f.submitted && id.invalid }"
+            placeholder="Digite o Id para editar."
+          />
+          <div *ngIf="f.submitted && id.invalid" class="invalid-feedback">
+            <div *ngIf="id.errors.required">Id é obrigatório</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input
+            type="text"
+            [(ngModel)]="usuario.nome"
+            id="nome"
+            name="nome"
+            #nome="ngModel"
+            required
+            class="form-control"
+            [ngClass]="{ 'is-invalid': f.submitted && nome.invalid }"
+            placeholder="Digite o nome."
+          />
+          <div *ngIf="f.submitted && nome.invalid" class="invalid-feedback">
+            <div *ngIf="nome.errors.required">Nome é obrigatório</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="tipo">Tipo</label>
+          <input
+            type="text"
+            [(ngModel)]="usuario.tipo"
+            id="tipo"
+            name="tipo"
+            #tipo="ngModel"
+            required
+            class="form-control"
+            [ngClass]="{ 'is-invalid': f.submitted && tipo.invalid }"
+            placeholder="Digite o tipo"
+          />
+          <div *ngIf="f.submitted && tipo.invalid" class="invalid-feedback">
+            <div *ngIf="tipo.errors.required">Preço é obrigatório</div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-add-usuario">Salvar</button>
+        <button type="reset" class="btn btn-secondary btn-add-usario" (click)="cleanForm(f)">Cancelar</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="card list-usuario">
+    <h5 class="card-header">Lista de usuários</h5>
+    <div class="card-body">
+      <input type="text" placeholder="Pesquisar" [(ngModel)]="filtro" />
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Tipo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of usuarios | filtroUsuario: filtro; trackBy: trackById">
+            <td>{{ usuario.id }}</td>
+            <td>{{ usuario.nome }}</td>
+            <td>{{ usuario.tipo }}</td>
+            <td>
+              <button type="button" class="btn btn-warning btn-sm" (click)="editUsuario(usuario)">Editar</button>
+              <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteUsuario(usuario)">Deletar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
