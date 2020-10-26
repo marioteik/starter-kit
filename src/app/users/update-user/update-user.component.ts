@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RequestUpdate } from '../user.model';
 import { UserService } from '../user.service';
@@ -8,9 +7,12 @@ import { UserService } from '../user.service';
   selector: 'app-update-user',
   templateUrl: './update-user.component.html',
   styleUrls: ['./update-user.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UpdateUserComponent implements OnInit {
+  @Input()
   id: string;
+
   request: RequestUpdate;
 
   constructor(private userService: UserService, private route: ActivatedRoute) {}
