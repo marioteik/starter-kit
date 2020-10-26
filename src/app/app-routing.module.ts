@@ -15,6 +15,7 @@ const routes: Routes = [
     path: 'list-github',
     loadChildren: () => import('./list-github/list-github.module').then((m) => m.ListGithubModule),
   },
+  { path: 'new-user', loadChildren: () => import('./new-user/new-user.module').then((m) => m.NewUserModule) },
 ];
 
 @NgModule({
