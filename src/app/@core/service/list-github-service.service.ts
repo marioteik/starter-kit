@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 const routes = {
-  getUsers: () => `/users`,
+  users: () => `/users/`,
   removeUser: (id: number) => `/users/${id}`,
 };
 
@@ -15,9 +15,18 @@ export class ListGithubService {
   constructor(private httpClient: HttpClient) {}
 
   getUsers() {
-    return this.httpClient.get(routes.getUsers()).pipe(catchError(() => of(`Error, could not load users`)));
+    return this.httpClient.get(routes.users()).pipe(catchError(() => of(`Error, could not load users`)));
   }
   removeUser(id: number) {
     return this.httpClient.delete(routes.removeUser(id)).pipe(catchError(() => of(`Error, could not remove user`)));
+  }
+  createUser(avatarUrl: string, userLogin: string, userType: string) {
+    return this.httpClient
+      .post(routes.users(), {
+        avatar_url: avatarUrl,
+        login: userLogin,
+        type: userType,
+      })
+      .pipe(catchError(() => of(`Error, could not remove user`)));
   }
 }
