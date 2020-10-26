@@ -5,7 +5,7 @@ import { catchError, map } from 'rxjs/operators';
 
 const routes = {
   users: () => `/users/`,
-  removeUser: (id: number) => `/users/${id}`,
+  user: (id: number) => `/users/${id}`,
 };
 
 @Injectable({
@@ -18,11 +18,21 @@ export class ListGithubService {
     return this.httpClient.get(routes.users()).pipe(catchError(() => of(`Error, could not load users`)));
   }
   removeUser(id: number) {
-    return this.httpClient.delete(routes.removeUser(id)).pipe(catchError(() => of(`Error, could not remove user`)));
+    return this.httpClient.delete(routes.user(id)).pipe(catchError(() => of(`Error, could not remove user`)));
   }
   createUser(avatarUrl: string, userLogin: string, userType: string) {
     return this.httpClient
       .post(routes.users(), {
+        avatar_url: avatarUrl,
+        login: userLogin,
+        type: userType,
+      })
+      .pipe(catchError(() => of(`Error, could not remove user`)));
+  }
+  editUser(id: number, avatarUrl: string, userLogin: string, userType: string) {
+    const body = {};
+    return this.httpClient
+      .put(routes.user(id), {
         avatar_url: avatarUrl,
         login: userLogin,
         type: userType,
