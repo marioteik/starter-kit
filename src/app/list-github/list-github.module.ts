@@ -6,9 +6,10 @@ import { ListGithubComponent } from './list-github.component';
 
 import { AvatarRowComponent } from '../avatar-row/avatar-row.component';
 import { LoginRowComponent } from '../login-row/login-row.component';
+import { TypeRowComponent } from '../type-row/type-row.component';
 
 @NgModule({
-  declarations: [ListGithubComponent, AvatarRowComponent, LoginRowComponent],
+  declarations: [ListGithubComponent, AvatarRowComponent, LoginRowComponent, TypeRowComponent],
   imports: [CommonModule, ListGithubRoutingModule],
 })
 export class ListGithubModule {}
