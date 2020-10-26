@@ -30,9 +30,7 @@
               "src/manifest.webmanifest",
               "src/assets"
             ],
-            "styles": [
-              "src/main.scss"
-            ],
+            "styles": ["src/main.scss"],
             "scripts": []
           },
           "configurations": {
@@ -110,14 +108,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json", "e2e/tsconfig.json"],
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -135,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "ng-x-rocket"
+  "defaultProject": "ng-x-rocket",
+  "cli": {
+    "analytics": "08eb2c78-e0b0-42a2-88dc-9688d665abc9"
+  }
 }

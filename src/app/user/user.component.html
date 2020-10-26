@@ -1,0 +1,94 @@
+<div class="container-fluid">
+  <div class="jumbotron text-center">
+    <h1>
+      <span translate>Users</span>
+    </h1>
+    <div class="group-button">
+      <button class="btn btn-primary" (click)="openModal(modal)">Clone</button>
+      <button class="btn btn-secondary" (click)="openEditModal(edit_user_modal)" [disabled]="!selectedUser">
+        Edit
+      </button>
+      <button class="btn btn-danger" (click)="deleteUser(selectedUser.id)" [disabled]="!selectedUser">Delete</button>
+    </div>
+  </div>
+
+  <div class="container" *ngIf="!isLoading; else is_loading">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+      <div class="col" *ngFor="let user of users; trackBy: trackById">
+        <app-card-user
+          (click)="selectUser(user)"
+          [cardClass]="user.id == selectedUser?.id ? 'card card-selected' : 'card'"
+          [user]="user"
+        ></app-card-user>
+      </div>
+    </div>
+  </div>
+  <ng-template #is_loading>
+    <div class="text-center">
+      <app-loader [isLoading]="isLoading"></app-loader>
+    </div>
+  </ng-template>
+</div>
+<ng-template #modal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Clone github user</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="dateOfBirth">Username</label>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Insert your username"
+            required
+            [(ngModel)]="userName"
+            name="username"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-primary" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
+<ng-template #edit_user_modal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Edit user</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <label>Username</label>
+          <input type="text" name="username" [(ngModel)]="selectedUser.login" class="form-control" />
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <label>Name</label>
+          <input type="text" name="name" [(ngModel)]="selectedUser.name" class="form-control" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <label>Email</label>
+          <input type="text" name="email" [(ngModel)]="selectedUser.email" class="form-control" />
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <label>Bio</label>
+          <textarea name="bio" [(ngModel)]="selectedUser.bio" class="form-control"></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-primary" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
