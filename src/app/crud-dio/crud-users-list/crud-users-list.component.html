@@ -1,0 +1,32 @@
+<app-crud-edit-form
+  *ngIf="selectedUser.id"
+  [setUserId]="selectedUser.id"
+  (refreshList)="getNewList($event)"
+></app-crud-edit-form>
+<div *ngIf="listUsers" style="margin: 10px">
+  <table>
+    <thead>
+      <tr>
+        <th width="20px" style="text-align: center">Index</th>
+        <th width="100px" style="text-align: center">Login</th>
+        <th width="100px" style="text-align: center">Type</th>
+        <th width="150px" style="text-align: center">URL</th>
+        <th width="20px" colspan="2" style="text-align: center">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listUsers; let i = index; trackBy: trackById">
+        <td>{{ item.id }}</td>
+        <td>{{ item.login }}</td>
+        <td>{{ item.type | tipo_usuario }}</td>
+        <td>{{ item.url }}</td>
+        <td>
+          <button class="btn btn-warning" (click)="updateUser(item)">Alterar</button>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteUser(item)">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
