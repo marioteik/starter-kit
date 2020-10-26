@@ -1,9 +1,10 @@
 <button (click)="goTo('new-user')">Create user</button>
-<table>
+<table class="table">
   <thead>
     <th>avatar</th>
     <th>login</th>
     <th>type</th>
+    <th>action</th>
   </thead>
 
   <tbody>
@@ -13,12 +14,12 @@
       </td>
       <td>
         <app-login-row [userLogin]="user.login"></app-login-row>
-        <input #newUserLogin />
+        <input size="5" #newUserLogin />
         <button (click)="editUser(user.id, user.avatar_url, newUserLogin.value, user.type)">Edit</button>
       </td>
       <td>
         <app-type-row [userType]="user.type"></app-type-row>
-        <input #newUserType />
+        <input size="1" #newUserType />
         <button (click)="editUser(user.id, user.avatar_url, user.type, newUserType.value)">Edit</button>
       </td>
       <td>
