@@ -1,3 +1,8 @@
+
+<h1>
+    <img src="https://github.com/AtilaMedeiros/starter-kit/blob/master/video/CRUD.gif">
+</h1>
+
 # ngX Starter Kit
 
 Web project starter kit including modern tools and workflow based on

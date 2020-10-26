@@ -1,0 +1,19 @@
+<h1>Usuários</h1>
+
+<table *ngIf="responseUsers.data">
+  <thead>
+    <td>Nome</td>
+    <td>Sobrenome</td>
+    <td>...</td>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of responseUsers.data; trackBy: trackById">
+      <td>{{ user.first_name }}</td>
+      <td>{{ user.last_name }}</td>
+      <td>
+        <a routerLink="/users/update/{{ user.id }}">EDITAR</a> |
+        <a routerLink="/users/delete/{{ user.id }}">REMOVER</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
