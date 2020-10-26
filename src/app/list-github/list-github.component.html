@@ -16,6 +16,9 @@
       <td>
         <app-type-row [userType]="user.type"></app-type-row>
       </td>
+      <td>
+        <button (click)="remove(user.id)">Remove</button>
+      </td>
     </tr>
   </tbody>
 </table>

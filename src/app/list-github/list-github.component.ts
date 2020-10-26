@@ -12,12 +12,19 @@ export class ListGithubComponent implements OnInit {
   users: any = [];
 
   ngOnInit(): void {
+    this.getUsers();
+  }
+  getUsers(): void {
     this.listGithubService.getUsers().subscribe((users) => {
       this.users = users;
     });
   }
-
   trackById(index: number, item: any) {
     return item.id;
+  }
+  remove(id: number) {
+    this.listGithubService.removeUser(id).subscribe(() => {
+      this.getUsers();
+    });
   }
 }
