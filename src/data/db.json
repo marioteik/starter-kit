@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Ademir Rodrigues da Silva",
+      "age": 48
+    },
+    {
+      "id": 2,
+      "name": "Epamindondas Cerqueiro",
+      "age": 38
+    },
+    {
+      "id": 3,
+      "name": "José Roberto dos Santos",
+      "age": 45
+    },
+    {
+      "id": 4,
+      "name": "Maria Aparecida da Silva",
+      "age": 50
+    },
+    {
+      "id": 5,
+      "name": "Carina Elias Pereira",
+      "age": 25
+    },
+    {
+      "id": 6,
+      "name": "Marina Sueli de Castro",
+      "age": 15
+    },
+    {
+      "id": 7,
+      "name": "Cesar Marcondes Duarte",
+      "age": 4
+    }
+  ]
+}

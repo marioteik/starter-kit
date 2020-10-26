@@ -5,6 +5,7 @@ export const environment = {
   hmr: true,
   version: env.npm_package_version + '-dev',
   chuckNorrisServerUrl: '/api',
+  usersApiUrl: '/usersapi',
   defaultLanguage: 'en-US',
   supportedLanguages: ['en-US', 'fr-FR'],
 };

@@ -1,0 +1,18 @@
+<div class="container">
+  <h3 class="text-center text-primary">
+    <strong>{{ isNewUser ? 'Adicionando novo' : 'Editando' }} usuário</strong>
+  </h3>
+  <form [formGroup]="frmUser">
+    <div class="form-group">
+      <label for="name">Nome</label>
+      <input class="form-control" id="name" aria-describedby="emailHelp" placeholder="Nome" formControlName="name" />
+    </div>
+    <div class="form-group">
+      <label for="age">Idade</label>
+      <input type="number" class="form-control" id="age" formControlName="age" placeholder="Idade" />
+    </div>
+
+    <button type="button" (click)="onSaveClick()" [disabled]="!frmUser?.valid" class="btn btn-primary">Salvar</button>
+    <button type="button" (click)="onCloseClick()" class="btn btn-secondary">Fechar</button>
+  </form>
+</div>
