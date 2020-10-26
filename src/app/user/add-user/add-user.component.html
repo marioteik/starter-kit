@@ -1,0 +1,59 @@
+<div id="main" class="container-fluid">
+  <div id="top" class="row">
+    <div class="col-md-3">
+      <h2>Adiciona Novo Usuário</h2>
+    </div>
+  </div>
+  <hr />
+  <div class="col-md-4">
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <b><label for="first_name">Nome:</label></b>
+        <input
+          formControlName="first_name"
+          placeholder="Digite o nome do usuario..."
+          name="first_name"
+          class="form-control"
+          id="first_name"
+        />
+      </div>
+
+      <div class="form-group">
+        <b><label for="last_name">Sobrenome:</label></b>
+        <input
+          formControlName="last_name"
+          placeholder="Digite o sobrenome do usuario..."
+          name="last_name"
+          class="form-control"
+          id="last_name"
+        />
+      </div>
+
+      <div class="form-group">
+        <b><label for="email">E-mail:</label></b>
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="Digite o seu e-mail..."
+          name="email"
+          class="form-control"
+          id="email"
+        />
+      </div>
+
+      <div class="form-group">
+        <b><label for="avatar">Avatar:</label></b>
+        <input
+          type="text"
+          formControlName="avatar"
+          placeholder="Informe o link do seu avatar..."
+          name="avatar"
+          class="form-control"
+          id="avatar"
+        />
+      </div>
+
+      <button class="btn btn-success">Adicionar</button>
+    </form>
+  </div>
+</div>
