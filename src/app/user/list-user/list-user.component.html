@@ -1,0 +1,44 @@
+<div id="main" class="container-fluid">
+  <div id="top" class="row">
+    <div class="col-md-3">
+      <h2>Lista de Usuários</h2>
+    </div>
+
+    <div class="col-md-4"></div>
+
+    <div class="col-md-3">
+      <button class="btn btn-primary pull-right h2" (click)="addUser()">Novo Usuário</button>
+    </div>
+  </div>
+  <br />
+  <div id="list" class="row">
+    <div class="table-responsive col-md-9">
+      <table class="table table-striped" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr>
+            <th>Avatar</th>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Email</th>
+            <th class="actions"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; trackBy: trackByFn">
+            <td><img width="40" height="40" style="border-radius: 50%" src="{{ user.avatar }}" /></td>
+            <td>{{ user.id }}</td>
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.last_name }}</td>
+            <td>{{ user.email }}</td>
+            <td class="actions">
+              <button class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
+              <button class="btn btn-warning" (click)="editUser(user)" style="margin-left: 20px">Edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div id="bottom" class="row"></div>
+</div>

@@ -1,0 +1,21 @@
+<div class="container">
+  <form>
+    <h2>Newsletter</h2>
+    <br />
+
+    <h5>Olá insira as áreas que deseja receber a NewsLetter:</h5>
+
+    <div class="form-group"></div>
+    <div class="input-group">
+      <div class="col-xs-2">
+        <input #area type="text" name="area" class="form-control" placeholder="Insira a área de interesse" />
+      </div>
+      <span class="input-group-btn" style="margin-left: 5px">
+        <button type="button" class="btn btn-primary" value="Area" (click)="addAreas(area.value)">
+          Adicionar Area
+        </button>
+      </span>
+    </div>
+  </form>
+  <app-child [data]="areas"></app-child>
+</div>
