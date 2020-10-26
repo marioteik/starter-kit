@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadingStrategy, PreloadAllModules } from '@angular/router';
 import { CreateUserComponent } from './users/create-user/create-user.component';
 import { UpdateUserComponent } from './users/update-user/update-user.component';
 import { DeleteUserComponent } from './users/delete-user/delete-user.component';
@@ -15,7 +15,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule],
   providers: [],
 })
