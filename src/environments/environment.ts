@@ -7,4 +7,5 @@ export const environment = {
   chuckNorrisServerUrl: '/api',
   defaultLanguage: 'en-US',
   supportedLanguages: ['en-US', 'fr-FR'],
+  API: 'http://localhost:3000/',
 };

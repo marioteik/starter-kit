@@ -11,7 +11,7 @@ import { HomeModule } from './home/home.module';
 import { ShellModule } from './shell/shell.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AboutModule } from './about/about.module';
+//import { AboutModule } from './about/about.module';
 
 @NgModule({
   imports: [
@@ -23,7 +23,7 @@ import { AboutModule } from './about/about.module';
     CoreModule,
     SharedModule,
     ShellModule,
-    AboutModule,
+    //AboutModule, //lazy loading
     HomeModule,
     AppRoutingModule, // must be imported as the last module as it contains the fallback route
   ],

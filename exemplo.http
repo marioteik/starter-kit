@@ -1,0 +1,26 @@
+### iniciar o json server
+### json-server --watch db.json
+
+http://localhost:3000/user
+
+###
+
+POST http://localhost:3000/user HTTP/1.1
+content-type: application/json
+
+{
+    "nome": "Avanade"
+}
+
+###
+
+PUT http://localhost:3000/user/2 HTTP/1.1
+content-type: application/json
+
+{
+    "nome": "Avanade Soluções"
+}
+
+###
+
+DELETE http://localhost:3000/user/3
