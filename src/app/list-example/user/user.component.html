@@ -1,0 +1,65 @@
+<div class="container-fluid">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm.value)">
+    <div class="form-group">
+      <label for="login">Login <span class="text-danger">*</span></label>
+      <input type="text" id="login" formControlName="login" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+      <label for="name">Name <span class="text-danger">*</span></label>
+      <input type="text" id="name" formControlName="name" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label for="htmlUrl">GitHub Url <span class="text-danger">*</span></label>
+      <input type="url" id="htmlUrl" formControlName="htmlUrl" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+      <label for="avatarUrl">Avatar Url <span class="text-danger">*</span></label>
+      <input type="url" id="avatarUrl" formControlName="avatarUrl" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+      <label for="followers">Followers <span class="text-danger">*</span></label>
+      <input type="number" id="followers" formControlName="followers" class="form-control" min="0" value="0" required />
+    </div>
+
+    <div class="form-group">
+      <label for="following">Following <span class="text-danger">*</span></label>
+      <input type="number" id="following" formControlName="following" class="form-control" min="0" value="0" required />
+    </div>
+
+    <div class="form-group">
+      <label for="following">Following <span class="text-danger">*</span></label>
+      <input type="number" id="following" formControlName="following" class="form-control" min="0" value="0" required />
+    </div>
+
+    <div class="form-group d-none">
+      <label for="type">Type</label>
+      <input type="text" id="type" formControlName="type" class="form-control" />
+    </div>
+
+    <div class="form-group d-none">
+      <label for="siteAdmin">Site Admin</label>
+      <input type="text" id="siteAdmin" formControlName="siteAdmin" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input type="text" id="location" formControlName="location" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="createdAt">Created</label>
+      <input type="text" id="createdAt" formControlName="createdAt" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+      <label for="updatedAt">Updated</label>
+      <input type="text" id="updatedAt" formControlName="updatedAt" class="form-control" readonly />
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="userForm.invalid">Submit</button>
+    <button class="btn btn-light" (click)="onGoBack()">Back</button>
+  </form>
+</div>
