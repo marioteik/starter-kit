@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RequestUpdate } from '../user.model';
 import { UserService } from '../user.service';
@@ -11,6 +12,7 @@ import { UserService } from '../user.service';
 export class UpdateUserComponent implements OnInit {
   id: string;
   request: RequestUpdate;
+
   constructor(private userService: UserService, private route: ActivatedRoute) {}
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');

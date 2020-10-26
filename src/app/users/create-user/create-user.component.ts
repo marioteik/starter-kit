@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RequestCreate, ResponseCreate } from '../user.model';
 import { UserService } from '../user.service';
 

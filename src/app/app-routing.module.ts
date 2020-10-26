@@ -8,10 +8,10 @@ const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: 'about', loadChildren: () => import('./about/about.module').then((m) => m.AboutModule) },
   { path: 'users', loadChildren: () => import('./users/users.module').then((m) => m.UsersModule) },
+  { path: 'about', loadChildren: () => import('./about/about.module').then((m) => m.AboutModule) },
   { path: 'users/create', component: CreateUserComponent },
   { path: 'users/update/:id', component: UpdateUserComponent },
   { path: 'users/delete/:id', component: DeleteUserComponent },
-  // { path: 'users/create', loadChildren: () => import('./users/users.module').then(m => m.CreateUserComponent) },
 ];
 
 @NgModule({
