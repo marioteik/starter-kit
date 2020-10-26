@@ -11,7 +11,7 @@
         <app-avatar-row [avatarUrl]="user.avatar_url" [userLogin]="user.login"></app-avatar-row>
       </td>
       <td>
-        {{ user.login }}
+        <app-login-row [userLogin]="user.login"></app-login-row>
       </td>
       <td>
         {{ user.type }}
