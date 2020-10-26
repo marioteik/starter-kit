@@ -1,0 +1,10 @@
+<div style="margin-left: 1em">
+  <h3>{{ todo?.title }}</h3>
+  <br />
+  Título:
+  <br />
+  <input #title type="text" name="" [value]="todo?.title" />
+  <br /><br />
+  <button type="button" (click)="salvar(title)">Salvar</button>
+  <button type="button" (click)="excluir()">Excluir</button>
+</div>

@@ -11,6 +11,14 @@ const routes: Routes = [
     path: 'about',
     loadChildren: () => import('./about/about.module').then((m) => m.AboutModule),
   },
+  {
+    path: 'github',
+    loadChildren: () => import('./github/github.module').then((m) => m.GithubModule),
+  },
+  {
+    path: 'todo',
+    loadChildren: () => import('./todo/todo.module').then((m) => m.TodoModule),
+  },
 ];
 
 @NgModule({

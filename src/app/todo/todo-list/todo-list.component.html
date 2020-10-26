@@ -1,0 +1,23 @@
+<div style="margin-left: 1em">
+  <input #newTodo type="text" />
+  <button type="button" (click)="addTodo(newTodo)" (keyup.enter)="addTodo(newTodo)">Adicionar</button>
+  <br /><br />
+  <table>
+    <thead>
+      <tr>
+        <th>Todos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of todos; let i = index; trackBy: trackById">
+        <td>
+          <br />
+          <input type="checkbox" [checked]="todo.completed" />
+          {{ todo.title }}
+          <br />
+          <a [routerLink]="['/todo', todo.id]">Edit</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
