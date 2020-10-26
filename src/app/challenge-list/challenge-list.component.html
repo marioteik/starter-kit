@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6 col-md-8 col-sm-10 ml-5 mb-5">
+      <div class="col-lg-8 col-md-8">
+        <h3 class="text-center">CRUD Local com Json-server</h3>
+      </div>
+      <ul class="list-group list-group-horizontal mb-2">
+        <li class="list-group-item w-25"><b>Id</b></li>
+        <li class="list-group-item w-25"><b>Login</b></li>
+        <li class="list-group-item w-25"><b>Type</b></li>
+        <button type="button" class="ml-2 btn btn-info" (click)="saveUser()">Adicionar</button>
+      </ul>
+
+      <app-list [users]="users"></app-list>
+    </div>
+    <div class="col-lg-5 col-md-8 col-sm-10 ml-5">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
