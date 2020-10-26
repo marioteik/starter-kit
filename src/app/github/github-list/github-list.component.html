@@ -1,0 +1,14 @@
+<table>
+  <thead>
+    <tr>
+      <th>index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; trackBy: trackById">
+      <td>
+        {{ user.login }}
+      </td>
+    </tr>
+  </tbody>
+</table>

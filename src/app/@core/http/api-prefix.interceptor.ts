@@ -13,7 +13,13 @@ import { environment } from '@env/environment';
 export class ApiPrefixInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (!/^(http|https):/i.test(request.url)) {
-      request = request.clone({ url: environment.chuckNorrisServerUrl + request.url });
+      if (request.url.startsWith('/jokes/random')) {
+        request = request.clone({ url: environment.chuckNorrisServerUrl + request.url });
+      } else if (request.url.startsWith('/todos')) {
+        request = request.clone({ url: environment.todosServerUrl + request.url });
+      } else {
+        request = request.clone({ url: environment.githubServerUrl + request.url });
+      }
     }
     return next.handle(request);
   }
