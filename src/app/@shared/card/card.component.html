@@ -1,0 +1,27 @@
+<div class="card-columns text-center">
+  <div class="card text-center" style="width: 22rem" *ngFor="let user of data; trackBy: trackByUserId">
+    <div class="card-body">
+      <!-- <img src="{{ user.avatar_url }}" alt="{{ user.login }}" class="rounded-circle w-25 mb-4" /> -->
+      <app-avatar [avatarUrl]="user.avatar_url" [attrAlt]="user.login"></app-avatar>
+      <h5 class="card-title">{{ user.name ? user.name : user.login }}</h5>
+      <div class="card-text">
+        <p class="seguindo">
+          <i class="fas fa-user-friends text-primary"></i>
+          <span class="badge badge-pill badge-ligth">{{ user.followers }}</span>
+          <span>Seguidores</span>
+          <span class="badge badge-pill badge-ligth">{{ user.following }}</span>
+          <span>Seguindo</span>
+        </p>
+        <p class="badge badge-light">Entrou em {{ user.created_at | date: 'dd/MM/yyyy' }}</p>
+      </div>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <span style="display: block; margin-bottom: 1rem">
+        <a href="{{ user.html_url }}" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github fa-2x text-dark"></i>
+        </a>
+      </span>
+      <button class="btn btn-success" (click)="onSearchPlusUser(user)"><i class="fas fa-search-plus"></i></button>
+      <button class="btn btn-light" (click)="onTrashUser(user.id)"><i class="far fa-trash-alt"></i></button>
+    </div>
+  </div>
+</div>

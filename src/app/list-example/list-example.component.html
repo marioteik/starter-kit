@@ -1,0 +1,10 @@
+<div class="container-fluid">
+  <app-loader [isLoading]="isLoading"></app-loader>
+  <a class="btn btn-primary mb-3" [routerLink]="['user/new']">Novo Usuário</a>
+  <app-card [data]="users" (removeUser)="onTrashUser($event)" (searchPlusUser)="onSearchPlusUser($event)"></app-card>
+  <!-- <pre>
+    <code>
+      {{users | json}}
+    </code>
+  </pre> -->
+</div>
