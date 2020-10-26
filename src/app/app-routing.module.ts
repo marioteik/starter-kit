@@ -8,8 +8,8 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'about',
     loadChildren: () => import('./about/about.module').then((m) => m.AboutModule),
+    path: 'about',
   },
 ];
 
