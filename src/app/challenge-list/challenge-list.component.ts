@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { Users } from './../model/users';
@@ -11,7 +12,7 @@ import { ChallengeListService } from './services/challenge-list.service';
 export class ChallengeListComponent implements OnInit {
   users: Users[] = [];
 
-  constructor(private challengeSevice: ChallengeListService) {}
+  constructor(private challengeSevice: ChallengeListService, private router: Router) {}
 
   ngOnInit(): void {
     this.challengeSevice.getUsers().subscribe((users: Users[]) => {

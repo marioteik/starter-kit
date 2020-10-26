@@ -1,0 +1,159 @@
+{
+  "users": [
+    {
+      "login": "mojombo",
+      "id": 1,
+      "type": "User"
+    },
+    {
+      "login": "defunkt",
+      "id": 2,
+      "type": "User"
+    },
+    {
+      "login": "pjhyett",
+      "id": 3,
+      "type": "User"
+    },
+    {
+      "login": "wycats",
+      "id": 4,
+      "type": "User"
+    },
+    {
+      "login": "ezmobius",
+      "id": 5,
+      "type": "User"
+    },
+    {
+      "login": "ivey",
+      "id": 6,
+      "type": "User"
+    },
+    {
+      "login": "evanphx",
+      "id": 7,
+      "type": "User"
+    },
+    {
+      "login": "vanpelt",
+      "id": 17,
+      "type": "User"
+    },
+    {
+      "login": "wayneeseguin",
+      "id": 18,
+      "type": "User"
+    },
+    {
+      "login": "brynary",
+      "id": 19,
+      "type": "User"
+    },
+    {
+      "login": "kevinclark",
+      "id": 20,
+      "type": "User"
+    },
+    {
+      "login": "technoweenie",
+      "id": 21,
+      "type": "User"
+    },
+    {
+      "login": "macournoyer",
+      "id": 22,
+      "type": "User"
+    },
+    {
+      "login": "takeo",
+      "id": 23,
+      "type": "User"
+    },
+    {
+      "login": "caged",
+      "id": 25,
+      "type": "User"
+    },
+    {
+      "login": "topfunky",
+      "id": 26,
+      "type": "User"
+    },
+    {
+      "login": "anotherjesse",
+      "id": 27,
+      "type": "User"
+    },
+    {
+      "login": "roland",
+      "id": 28,
+      "type": "User"
+    },
+    {
+      "login": "lukas",
+      "id": 29,
+      "type": "User"
+    },
+    {
+      "login": "fanvsfan",
+      "id": 30,
+      "type": "User"
+    },
+    {
+      "login": "tomtt",
+      "id": 31,
+      "type": "User"
+    },
+    {
+      "login": "railsjitsu",
+      "id": 32,
+      "type": "User"
+    },
+    {
+      "login": "nitay",
+      "id": 34,
+      "type": "User"
+    },
+    {
+      "login": "kevwil",
+      "id": 35,
+      "type": "User"
+    },
+    {
+      "login": "KirinDave",
+      "id": 36,
+      "type": "User"
+    },
+    {
+      "login": "jamesgolick",
+      "id": 37,
+      "type": "User"
+    },
+    {
+      "login": "atmos",
+      "id": 38,
+      "type": "User"
+    },
+    {
+      "login": "errfree",
+      "id": 44,
+      "type": "Organization"
+    },
+    {
+      "login": "mojodna",
+      "id": 45,
+      "type": "User"
+    },
+    {
+      "login": "bmizerany",
+      "id": 46,
+      "type": "User"
+    },
+    {
+      "login": "LeoInCode",
+      "type": "admin",
+      "id": 47
+    }
+  ]
+}
