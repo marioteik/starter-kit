@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ListGithubService } from '../@core/service/list-github-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-github',
@@ -7,10 +8,11 @@ import { ListGithubService } from '../@core/service/list-github-service.service'
   styleUrls: ['./list-github.component.scss'],
 })
 export class ListGithubComponent implements OnInit {
-  constructor(private listGithubService: ListGithubService) {}
-
+  constructor(private listGithubService: ListGithubService, private router: Router) {}
   users: any = [];
-
+  goTo(page: string) {
+    this.router.navigateByUrl(`/${page}`);
+  }
   ngOnInit(): void {
     this.getUsers();
   }
