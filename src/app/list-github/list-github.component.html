@@ -13,7 +13,7 @@
       </td>
       <td>
         <app-login-row [userLogin]="user.login"></app-login-row>
-        <label>new login: <br /><input #newUserLogin /></label>
+        <input #newUserLogin />
         <button (click)="editUser(user.id, user.avatar_url, newUserLogin.value, user.type)">Edit</button>
       </td>
       <td>
