@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListExampleService } from './services/list-example.service';
 
 @Component({
   selector: 'app-list-example',
@@ -6,7 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-example.component.scss'],
 })
 export class ListExampleComponent implements OnInit {
-  constructor() {}
+  items: any[];
 
-  ngOnInit(): void {}
+  constructor(private list_service: ListExampleService) {}
+
+  ngOnInit(): void {
+    this.list_service.getUsers().subscribe((users: any) => {
+      this.items = users;
+    });
+  }
+
+  trackById(index: number, item: any) {
+    return item.id;
+  }
 }

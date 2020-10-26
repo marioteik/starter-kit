@@ -1,1 +1,18 @@
-<p>list-example works!</p>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Index</th>
+        <th>Login</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items; let i = index; trackBy: trackById">
+        <td>{{ item.id }}</td>
+        <td>{{ item.login }}</td>
+        <td>{{ item.type }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

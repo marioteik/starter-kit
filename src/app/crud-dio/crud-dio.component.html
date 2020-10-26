@@ -1,0 +1,8 @@
+<div style="margin: 10px">
+  <button class="btn btn-primary" (click)="cloneGitUsers()" [disabled]="disableButton">Clonar users do git</button>
+  <button class="btn btn-success" (click)="insertUser()" [disabled]="!disableButton && !listGitUsers">
+    Incluir Novo
+  </button>
+  <div *ngIf="loadingGitUsers && !listGitUsers"><i class="fas fa-2x fa-spinner fa-spin"></i></div>
+</div>
+<app-crud-users-list [listUsers]="listGitUsers"></app-crud-users-list>

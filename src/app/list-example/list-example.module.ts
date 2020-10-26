@@ -8,5 +8,6 @@ import { ListExampleService } from './services/list-example.service';
 @NgModule({
   declarations: [ListExampleComponent],
   imports: [CommonModule, ListExampleRoutingModule],
+  providers: [],
 })
 export class ListExampleModule {}
