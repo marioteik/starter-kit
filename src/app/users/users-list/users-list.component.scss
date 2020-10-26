@@ -1,0 +1,44 @@
+.container {
+  margin: 20px 80px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+table {
+  width: 100%;
+}
+
+thead {
+  background: rgb(63, 63, 63);
+  color: #fff;
+}
+
+th,
+td {
+  padding: 5px 10px;
+  border: 1px solid #d0d0d0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+i.fa {
+  cursor: pointer;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #d8d8d8;
+  }
+
+  &.button {
+    color: #275181;
+
+    &:hover {
+      color: #132a44;
+    }
+  }
+}

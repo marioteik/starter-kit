@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Lista de Usuários {{ users?.length }}</h1>
+  <app-user-edit *ngIf="isEditing" [user]="currentRow" (close)="onEditClose($event)"></app-user-edit>
+  <table>
+    <thead>
+      <th class="text-center"><i class="fa fa-user-plus" title="Adicionar novo" (click)="startEdit()"></i></th>
+      <th>#</th>
+      <th>Nome</th>
+      <th>Idade</th>
+      <th>Classificação</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; trackBy: trackById">
+        <td class="text-center">
+          <i class="fa fa-pen button" aria-hidden="true" (click)="startEdit(user)" title="Editar"></i>
+          <i class="fa fa-trash button" aria-hidden="true" (click)="onDeleteClick(user.id)" title="Excluir"></i>
+        </td>
+        <td>
+          <app-user-field [data]="user.id"></app-user-field>
+        </td>
+        <td>
+          <app-user-field [data]="user.name"></app-user-field>
+        </td>
+        <td>
+          <app-user-field [data]="user.age"></app-user-field>
+        </td>
+        <td class="text-center">
+          {{ user.age | ageClassification }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

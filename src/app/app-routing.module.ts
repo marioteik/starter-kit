@@ -11,6 +11,7 @@ const routes: Routes = [
     path: 'about',
     loadChildren: () => import('./about/about.module').then((m) => m.AboutModule),
   },
+  { path: 'users', loadChildren: () => import('./users/users.module').then((m) => m.UsersModule) },
 ];
 
 @NgModule({
