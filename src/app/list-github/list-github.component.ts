@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ListGithubService } from '../@core/service/list-github-service.service';
 import { Router } from '@angular/router';
 
@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./list-github.component.scss'],
 })
 export class ListGithubComponent implements OnInit {
+  @Output() newItemEvent = new EventEmitter<string>();
   constructor(private listGithubService: ListGithubService, private router: Router) {}
   users: any = [];
   goTo(page: string) {
@@ -26,6 +27,11 @@ export class ListGithubComponent implements OnInit {
   }
   remove(id: number) {
     this.listGithubService.removeUser(id).subscribe(() => {
+      this.getUsers();
+    });
+  }
+  editUser(id: number, avatarUrl: string, userLogin: string, userType: string) {
+    this.listGithubService.editUser(id, avatarUrl, userLogin, userType).subscribe(() => {
       this.getUsers();
     });
   }
