@@ -11,6 +11,7 @@ export class ListGithubComponent implements OnInit {
   @Output() newItemEvent = new EventEmitter<string>();
   constructor(private listGithubService: ListGithubService, private router: Router) {}
   users: any = [];
+  isLoading = false;
   goTo(page: string) {
     this.router.navigateByUrl(`/${page}`);
   }
@@ -18,21 +19,27 @@ export class ListGithubComponent implements OnInit {
     this.getUsers();
   }
   getUsers(): void {
+    this.isLoading = true;
     this.listGithubService.getUsers().subscribe((users) => {
       this.users = users;
+      this.isLoading = false;
     });
   }
   trackById(index: number, item: any) {
     return item.id;
   }
   remove(id: number) {
+    this.isLoading = true;
     this.listGithubService.removeUser(id).subscribe(() => {
       this.getUsers();
+      this.isLoading = false;
     });
   }
   editUser(id: number, avatarUrl: string, userLogin: string, userType: string) {
+    this.isLoading = true;
     this.listGithubService.editUser(id, avatarUrl, userLogin, userType).subscribe(() => {
       this.getUsers();
+      this.isLoading = false;
     });
   }
 }

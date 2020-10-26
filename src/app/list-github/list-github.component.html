@@ -1,5 +1,6 @@
 <button (click)="goTo('new-user')">Create user</button>
-<table class="table">
+<app-loader [isLoading]="isLoading"></app-loader>
+<table [hidden]="isLoading" class="table">
   <thead>
     <th>avatar</th>
     <th>login</th>
