@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
@@ -11,6 +10,7 @@ import { UserService } from '../user.service';
 })
 export class DeleteUserComponent implements OnInit {
   id: string;
+
   user: User;
 
   constructor(private userService: UserService, private route: ActivatedRoute, private _router: Router) {}

@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RequestCreate, ResponseCreate } from '../user.model';
 import { UserService } from '../user.service';
 
@@ -13,7 +12,9 @@ export class CreateUserComponent implements OnInit {
     name: '',
     job: '',
   };
+
   response: ResponseCreate;
+
   constructor(private userService: UserService) {}
   ngOnInit(): void {}
   save() {

@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RequestUpdate } from '../user.model';
 import { UserService } from '../user.service';
 
@@ -7,15 +7,14 @@ import { UserService } from '../user.service';
   selector: 'app-update-user',
   templateUrl: './update-user.component.html',
   styleUrls: ['./update-user.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UpdateUserComponent implements OnInit {
-  @Input()
   id: string;
 
+  // @Input()
   request: RequestUpdate;
 
-  constructor(private userService: UserService, private route: ActivatedRoute) {}
+  constructor(private userService: UserService, private route: ActivatedRoute, private _router: Router) {}
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.userService.getUser(this.id).subscribe((res) => {
@@ -29,6 +28,7 @@ export class UpdateUserComponent implements OnInit {
   update() {
     this.userService.updateUser(this.id, this.request).subscribe((res) => {
       alert(`Atualizar: ${res.updatedAt}, Nome: ${res.name}, Job: ${res.job}`);
+      this._router.navigate(['/users']);
     });
   }
 }
