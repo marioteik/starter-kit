@@ -1,0 +1,69 @@
+<div class="container">
+  <h2>Informações do Usuário</h2>
+</div>
+
+<hr />
+<form #userForm="ngForm" *ngIf="user" class="ml-2">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Id:</label>
+    <div class="col-sm-2">
+      <input [(ngModel)]="user.id" readonly name="nome" #cursoNome="ngModel" class="form-control" />
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Avatar Url:</label>
+    <div class="col-sm-8">
+      <input
+        [(ngModel)]="user.avatar_url"
+        required
+        name="avatar_url"
+        #userAvatar="ngModel"
+        [ngClass]="{ 'is-invalid': userAvatar.invalid }"
+        class="form-control"
+      />
+      <div class="invalid-feedback">
+        <span>Url do avatar do usuário é obrigatório.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Login:</label>
+    <div class="col-sm-4">
+      <input
+        [(ngModel)]="user.login"
+        required
+        name="login"
+        #userLogin="ngModel"
+        [ngClass]="{ 'is-invalid': userLogin.invalid }"
+        class="form-control"
+      />
+      <div class="invalid-feedback">
+        <span>Login do usuário é obrigatório.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Tipo do Usuário:</label>
+    <div class="col-sm-4">
+      <input
+        [(ngModel)]="user.type"
+        required
+        name="type"
+        #userType="ngModel"
+        [ngClass]="{ 'is-invalid': userType.invalid }"
+        class="form-control"
+      />
+      <div class="invalid-feedback">
+        <span>Tipo do usuário é obrigatório.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button [disabled]="userForm.invalid" (click)="saveButton()" class="btn btn-primary mr-2">Salvar</button>
+    <button [routerLink]="['/list-users']" class="btn btn-secondary mr-2">Voltar</button>
+  </div>
+</form>
