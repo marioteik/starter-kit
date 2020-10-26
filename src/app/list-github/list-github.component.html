@@ -1,6 +1,6 @@
 <table>
   <thead>
-    <th>id</th>
+    <th>avatar</th>
     <th>login</th>
     <th>type</th>
   </thead>
@@ -8,7 +8,7 @@
   <tbody>
     <tr *ngFor="let user of users; trackBy: trackById">
       <td>
-        {{ user.id }}
+        <app-avatar-row [avatarUrl]="user.avatar_url" [userLogin]="user.login"></app-avatar-row>
       </td>
       <td>
         {{ user.login }}
