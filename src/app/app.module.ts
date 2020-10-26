@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MDBBootstrapModule, IconsModule } from 'angular-bootstrap-md';
 
 import { CoreModule } from '@core';
 import { SharedModule } from '@shared';
@@ -20,6 +21,8 @@ import { AboutModule } from './about/about.module';
     HttpClientModule,
     TranslateModule.forRoot(),
     NgbModule,
+    MDBBootstrapModule.forRoot(),
+    IconsModule,
     CoreModule,
     SharedModule,
     ShellModule,

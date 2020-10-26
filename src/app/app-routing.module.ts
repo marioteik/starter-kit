@@ -7,10 +7,8 @@ const routes: Routes = [
     redirectTo: '',
     pathMatch: 'full',
   },
-  {
-    path: 'about',
-    loadChildren: () => import('./about/about.module').then((m) => m.AboutModule),
-  },
+  { path: 'about', loadChildren: () => import('./about/about.module').then((m) => m.AboutModule) },
+  { path: 'user-crud', loadChildren: () => import('./user-crud/user-crud.module').then((m) => m.UserCrudModule) },
 ];
 
 @NgModule({
