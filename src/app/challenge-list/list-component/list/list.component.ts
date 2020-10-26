@@ -1,18 +1,23 @@
 import { Router } from '@angular/router';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 
 import { ChallengeListService } from './../../services/challenge-list.service';
 import { Users } from './../../../model/users';
 
 @Component({
   selector: 'app-list',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
   @Input() users: Users[] = [];
 
-  constructor(private challengeSevice: ChallengeListService, private router: Router) {}
+  constructor(
+    private challengeSevice: ChallengeListService,
+    private changeDetector: ChangeDetectorRef,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
@@ -20,11 +25,11 @@ export class ListComponent implements OnInit {
     this.router.navigate(['/challenge-list', id]);
   }
 
-  deleteUser(id: number) {
-    this.challengeSevice.deleteUser(id).subscribe((users: Users[]) => {
-      this.users.concat(users);
-      this.ngOnInit();
-      //location.assign('/challenge-list');
+  deleteUser(user: Users) {
+    this.challengeSevice.deleteUser(user.id).subscribe((users: Users[]) => {
+      const index = this.users.indexOf(user);
+      this.users.splice(index, 1);
+      this.changeDetector.detectChanges();
     });
   }
 

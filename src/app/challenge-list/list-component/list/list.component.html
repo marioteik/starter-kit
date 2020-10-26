@@ -3,5 +3,5 @@
   <li class="list-group-item w-25">{{ user.login }}</li>
   <li class="list-group-item w-25">{{ user | listPipe }}</li>
   <button type="button" class="ml-2 btn btn-primary" (click)="editarUser(user.id)">Editar</button>
-  <button type="button" class="ml-2 btn btn-danger" (click)="deleteUser(user.id)">Excluir</button>
+  <button type="button" class="ml-2 btn btn-danger" (click)="deleteUser(user)">Excluir</button>
 </ul>
