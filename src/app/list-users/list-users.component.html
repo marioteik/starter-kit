@@ -1,0 +1,32 @@
+<div class="card">
+  <div class="card-header">
+    <input type="text" #userInput />
+    <button (click)="onAddUser(userInput.value.nome)">Novo</button>
+  </div>
+  <div class="card-body">
+    <table class="table table-hover" *ngIf="users$ | async as users; else loading">
+      <thead>
+        <tr>
+          <th id="id">#</th>
+          <th id="nome">User</th>
+          <th id="acao"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; trackBy: trackById">
+          <td>{{ user.id }}</td>
+          <td>{{ user.nome }}</td>
+          <td>
+            <span class="flat-right">
+              <button class="btn btn-outline-warning mb-1 btn-sm" (click)="onEdit(user.id)">Atualizar</button>
+              <button class="btn btn-outline-danger mb-1 btn-sm" (click)="onDelete(user)">Remover</button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-template #loading>
+      <span>Carregando Usuários...</span>
+    </ng-template>
+  </div>
+</div>
