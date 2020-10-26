@@ -1,5 +1,5 @@
 <button (click)="goTo('new-user')">Create user</button>
-<app-loader [isLoading]="isLoading"></app-loader>
+<app-loader class="load" [isLoading]="isLoading"></app-loader>
 <table [hidden]="isLoading" class="table">
   <thead>
     <th>avatar</th>
@@ -21,7 +21,7 @@
       <td>
         <app-type-row [userType]="user.type"></app-type-row>
         <input size="1" #newUserType />
-        <button (click)="editUser(user.id, user.avatar_url, user.type, newUserType.value)">Edit</button>
+        <button (click)="editUser(user.id, user.avatar_url, user.login, newUserType.value)">Edit</button>
       </td>
       <td>
         <button (click)="remove(user.id)">Remove</button>
