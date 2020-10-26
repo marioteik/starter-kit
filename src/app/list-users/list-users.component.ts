@@ -33,7 +33,7 @@ export class ListUsersComponent implements OnInit {
     this.service.remove(user).subscribe();
   }
 
-  //trackById
+  // trackById
   trackById(index: number, item: any) {
     return item.id;
   }

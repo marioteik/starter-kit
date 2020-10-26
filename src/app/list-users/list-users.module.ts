@@ -7,6 +7,6 @@ import { ListUsersComponent } from './list-users.component';
 @NgModule({
   declarations: [ListUsersComponent],
   imports: [CommonModule, ListUsersRoutingModule],
-  providers: [], //treeshackable
+  providers: [], // treeshackable
 })
 export class ListUsersModule {}
