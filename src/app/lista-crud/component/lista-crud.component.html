@@ -1,1 +1,14 @@
-<p>lista-crud works!</p>
+<table class="table table-hover table-strip">
+  <thead>
+    <td>#</td>
+    <td>nome</td>
+    <td>sobrenome</td>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.nome }}</td>
+      <td>{{ user.sobrenome }}</td>
+    </tr>
+  </tbody>
+</table>
