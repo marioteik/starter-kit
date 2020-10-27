@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <h1>Users</h1>
+  <form (ngSubmit)="create(f)" #f="ngForm" novalidate>
+    <input type="text" [(ngModel)]="user.id" id="id" name="id" #id="ngModel" placeholder="Id." />
+    <input type="text" [(ngModel)]="user.login" id="login" name="login" #nome="ngModel" placeholder="login" />
+    <input type="text" [(ngModel)]="user.type" id="type" name="type" #type="ngModel" required placeholder="type" />
+    <button type="submit">Create</button>
+  </form>
+  <br />
+
+  <table>
+    <thead>
+      <th>Id</th>
+      <th>Login</th>
+      <th>Type</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; trackBy: trackById">
+        <td>
+          {{ user.id }}
+        </td>
+        <td>
+          {{ user.login }}
+        </td>
+        <td>
+          {{ user.type }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</html>
