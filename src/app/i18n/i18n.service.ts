@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { Logger } from '@core/logger.service';
 import enUS from '../../translations/en-US.json';
 import frFR from '../../translations/fr-FR.json';
+import ptBR from '../../translations/pt-BR.json';
 
 const log = new Logger('I18nService');
 const languageKey = 'language';
@@ -22,6 +23,7 @@ export class I18nService {
     // Embed languages to avoid extra HTTP requests
     translateService.setTranslation('en-US', enUS);
     translateService.setTranslation('fr-FR', frFR);
+    translateService.setTranslation('pt-BR', ptBR);
   }
 
   /**
