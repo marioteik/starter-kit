@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { fromEventPattern } from 'rxjs';
+import { User } from '../model/user.model';
+import { ListaCrudService } from '../service';
 
 @Component({
   selector: 'app-lista-crud',
@@ -6,7 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lista-crud.component.scss'],
 })
 export class ListaCrudComponent implements OnInit {
-  constructor() {}
+  public users: User[];
 
-  ngOnInit(): void {}
+  constructor(private service: ListaCrudService) {}
+
+  ngOnInit(): void {
+    this.service.getUsers().subscribe((res) => {
+      console.log(res);
+      this.users = res.map((user) => {
+        return new User(user.id, user.nome, user.sobrenome);
+      });
+    });
+  }
 }
