@@ -23,4 +23,8 @@ export class UserComponent implements OnInit {
   deleteById(id: number): void {
     this.userService.delete(id);
   }
+
+  trackById(index: number, user: User) {
+    return user.id;
+  }
 }
