@@ -1,0 +1,36 @@
+<button (click)="goTo('new-user')">Create user</button>
+<app-loader class="load" [isLoading]="isLoading"></app-loader>
+<table [hidden]="isLoading" class="table">
+  <thead>
+    <th>avatar</th>
+    <th>login</th>
+    <th>type</th>
+    <th>action</th>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let user of users; trackBy: trackById">
+      <td>
+        <app-avatar-row [avatarUrl]="user.avatar_url" [userLogin]="user.login"></app-avatar-row>
+        <input size="10" placeholder="Avatar URL" #newUserAvatar />
+        <button (click)="editUser(user.id, newUserAvatar.value, user.login, user.type)">Edit</button>
+      </td>
+      <td>
+        <app-login-row [userLogin]="user.login"></app-login-row>
+        <input size="5" #newUserLogin />
+        <button (click)="editUser(user.id, user.avatar_url, newUserLogin.value, user.type)">Edit</button>
+      </td>
+      <td>
+        <app-type-row [userType]="user.type"></app-type-row>
+        <select #newUserType>
+          <option value="User">User</option>
+          <option value="Organization">Organization</option>
+        </select>
+        <button (click)="editUser(user.id, user.avatar_url, user.login, newUserType.value)">Edit</button>
+      </td>
+      <td>
+        <button (click)="remove(user.id)">Remove</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
