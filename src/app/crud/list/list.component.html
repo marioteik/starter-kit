@@ -17,7 +17,8 @@
                 <tbody>
                     <tr *ngFor="let user of users; trackBy: trackByUserId">
                         <td colspan="5">
-                            <app-user-row [user]="user"></app-user-row>
+                            <app-user-row [user]="user" (userDeleting)="userDeleting()" (userDeleted)="userDeleted()">
+                            </app-user-row>
                         </td>
                     </tr>
                     <tr *ngIf="users.length === 0">

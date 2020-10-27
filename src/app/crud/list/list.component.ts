@@ -38,4 +38,12 @@ export class ListComponent implements OnInit {
     return user._id;
   }
 
+  userDeleting() {
+    this.isLoading = true;
+  }
+
+  userDeleted() {
+    this.loadUsers();
+  }
+
 }
