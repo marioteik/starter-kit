@@ -9,24 +9,22 @@
       <table class="table table-bordered table-responsive-md table-striped text-center">
         <tr>
           <th class="text-center">Id</th>
-          <th class="text-center">Login</th>
-          <th class="text-center">Type</th>
+          <th class="text-center">Name</th>
+          <th class="text-center">Email</th>
           <th class="text-center">Remove</th>
         </tr>
         <tr *ngFor="let user of users; trackBy: trackById">
           <td>
-            <span contenteditable="true">{{ user.id }}</span>
+            <span contenteditable="true" (keyup)="updateUser(user)">{{ user.id }}</span>
           </td>
           <td>
-            <span contenteditable="true">{{ user.login }}</span>
+            <span contenteditable="true" (keyup)="updateUser(user)">{{ user.name }}</span>
           </td>
           <td>
-            <span contenteditable="true">{{ user.type }}</span>
+            <span contenteditable="true" (keyup)="updateUser(user)">{{ user.email }}</span>
           </td>
           <td>
-            <span class="table-remove">
-              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0">Remove</button>
-            </span>
+            <button class="btn btn-info" rounded="true" size="sm" (click)="deleteUser(user.id)">Remove</button>
           </td>
         </tr>
       </table>

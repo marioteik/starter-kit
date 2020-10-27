@@ -14,6 +14,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AboutModule } from './about/about.module';
 
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { UserData } from './user-crud/user-data.service';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -27,6 +30,7 @@ import { AboutModule } from './about/about.module';
     SharedModule,
     ShellModule,
     HomeModule,
+    InMemoryWebApiModule.forRoot(UserData),
     AppRoutingModule, // must be imported as the last module as it contains the fallback route
   ],
   declarations: [AppComponent],

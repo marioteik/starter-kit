@@ -13,12 +13,28 @@ export class UserCrudComponent implements OnInit {
   constructor(private userCrudService: UserCrudService) {}
 
   ngOnInit(): void {
-    this.userCrudService.getUsers().subscribe((users) => {
-      this.users = users;
-    });
+    this.getUsers();
   }
 
   trackById(index: number, item: any) {
     return item.id;
+  }
+
+  updateUser(user: any) {
+    this.userCrudService.updateUser(user).subscribe((data) => {
+      this.getUsers();
+    });
+  }
+
+  deleteUser(id: number) {
+    this.userCrudService.deleteUser(id).subscribe((data) => {
+      this.getUsers();
+    });
+  }
+
+  getUsers() {
+    this.userCrudService.getUsers().subscribe((users) => {
+      this.users = users;
+    });
   }
 }
