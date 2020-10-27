@@ -1,0 +1,8 @@
+<td style="width: 20%">{{ user._id }}</td>
+<td style="width: 20%">{{ user.name }}</td>
+<td style="width: 20%">{{ user.age }}</td>
+<td style="width: 20%">{{ user.active | userStatus }}</td>
+<td style="width: 20%">
+    <button (click)="edit(user._id)" style="background-color: blue">Edit</button>
+    <button (click)="delete(user._id)" style="background-color: red">Delete</button>
+</td>

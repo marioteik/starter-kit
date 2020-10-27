@@ -1,14 +1,8 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="https://github.com/ngx-rocket" translate>APP_NAME</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      aria-controls="navbar-menu"
-      aria-label="Toggle navigation"
-      (click)="toggleMenu()"
-      [attr.aria-expanded]="!menuHidden"
-    >
+    <button class="navbar-toggler" type="button" aria-controls="navbar-menu" aria-label="Toggle navigation"
+      (click)="toggleMenu()" [attr.aria-expanded]="!menuHidden">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div id="navbar-menu" class="collapse navbar-collapse float-xs-none" [ngbCollapse]="menuHidden">
@@ -16,6 +10,10 @@
         <a class="nav-item nav-link text-uppercase" routerLink="/home" routerLinkActive="active">
           <i class="fas fa-home"></i>
           <span translate>Home</span>
+        </a>
+        <a class="nav-item nav-link text-uppercase" routerLink="/crud" routerLinkActive="active">
+          <i class="fas fa-list"></i>
+          <span translate>CRUD</span>
         </a>
         <a class="nav-item nav-link text-uppercase" routerLink="/about" routerLinkActive="active">
           <i class="fas fa-question-circle"></i>
