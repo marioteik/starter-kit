@@ -1,0 +1,41 @@
+<div id="main" class="container-fluid">
+  <div id="top" class="row">
+    <div class="col">
+      <h2>Users</h2>
+    </div>
+
+    <div class="col">
+      <label for="name">Name</label>
+      <input type="text" [(ngModel)]="name" />
+      <label for="input-email">Email</label>
+      <input type="text" [(ngModel)]="email" />
+      <button class="btn btn-primary pull-right h2" (click)="addUser()">ADD User</button>
+    </div>
+  </div>
+  <br />
+  <div id="list" class="row">
+    <div class="table-responsive col">
+      <table class="table table-striped" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th class="actions"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; trackBy: trackById">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td class="actions">
+              <button class="btn btn-primary" (click)="editUser(user.id)">Edit User</button>
+              <button class="btn btn-danger" (click)="deleteUser(user.id)">Delete User</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
