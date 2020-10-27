@@ -8,6 +8,10 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'crud',
+    loadChildren: () => import('./crud/crud.module').then((m) => m.CrudModule),
+  },
+  {
     path: 'about',
     loadChildren: () => import('./about/about.module').then((m) => m.AboutModule),
   },

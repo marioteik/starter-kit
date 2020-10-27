@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="jumbotron text-center">
+        <h2>List of users</h2>
+        <img [hidden]="!isLoading" src="https://retchhh.files.wordpress.com/2015/03/loading2.gif">
+        <div [hidden]="isLoading">
+            <a routerLink="/crud/create">Create</a>
+            <table style="margin: auto; width: 80%; border: 1px solid grey">
+                <thead>
+                    <tr style="background-color: grey">
+                        <th style="width: 20%">ID</th>
+                        <th style="width: 20%">Name</th>
+                        <th style="width: 20%">Age</th>
+                        <th style="width: 20%">Status</th>
+                        <th style="width: 20%">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users; trackBy: trackByUserId">
+                        <td colspan="5">
+                            <app-user-row [user]="user"></app-user-row>
+                        </td>
+                    </tr>
+                    <tr *ngIf="users.length === 0">
+                        <td colspan="5">No data available</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

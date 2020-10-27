@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="jumbotron text-center">
+        <h2>Edit user</h2>
+        <a routerLink="/crud">Back to list</a>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <td><input type="text" name="name" placeholder="Input name of user" formControlName="name" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Age</th>
+                    <td><input type="number" name="age" placeholder="Input age of user" min="1" formControlName="age"
+                            required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Active</th>
+                    <td><input type="checkbox" name="active" label="Check if user is currently active"
+                            formControlName="active">
+                    </td>
+                </tr>
+            </table>
+            <button type="submit" [disabled]="!userForm.valid">Submit</button>
+        </form>
+    </div>
+</div>
