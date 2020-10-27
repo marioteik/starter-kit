@@ -1,0 +1,27 @@
+<table>
+  <thead>
+    <th>Usuários</th>
+  </thead>
+  <button (click)="novo()">Novo Usuário</button>
+  <br />
+  <label for="imagem">URL de avatar novo</label>
+  <input name="imagem" type="text" [(ngModel)]="urlImagem" />
+  <tbody>
+    <tr *ngFor="let user of users; trackBy: trackById">
+      <td>
+        <app-user-avatar>
+          <img src="{{ user.avatar_url }}" alt="" style="height: 3em" />
+        </app-user-avatar>
+      </td>
+      <td>
+        {{ user.login }}
+      </td>
+      <td>
+        {{ user.type }}
+      </td>
+
+      <td><button (click)="update(user)">Update Avatar</button></td>
+      <td><button (click)="remover(user)">Remover</button></td>
+    </tr>
+  </tbody>
+</table>

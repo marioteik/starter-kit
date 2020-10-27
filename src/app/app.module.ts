@@ -12,6 +12,8 @@ import { ShellModule } from './shell/shell.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AboutModule } from './about/about.module';
+import { ListExampleComponent } from './list-example/list-example.component';
+import { UserAvatarComponent } from './user-avatar/user-avatar.component';
 
 @NgModule({
   imports: [
@@ -27,7 +29,7 @@ import { AboutModule } from './about/about.module';
     HomeModule,
     AppRoutingModule, // must be imported as the last module as it contains the fallback route
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, ListExampleComponent, UserAvatarComponent],
   providers: [],
   bootstrap: [AppComponent],
 })
