@@ -11,6 +11,10 @@ const routes: Routes = [
     path: 'about',
     loadChildren: () => import('./about/about.module').then((m) => m.AboutModule),
   },
+  {
+    path: 'lista-crud',
+    loadChildren: () => import('./lista-crud/lista-crud.module').then((m) => m.ListaCrudModule),
+  },
 ];
 
 @NgModule({
