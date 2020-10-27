@@ -3,22 +3,22 @@
 ### Descrição
 
 - Desafio em Angular proposto pelo Mario Teik, onde dever[a será implementado no app:
-  -- enableProdMode
-  -- Carregamento tardio (Lazy Loading)
-  -- CRUD com a API do GitHub ou com objeto local (pode-se utilizar o Json Server)
-  -- Tree-shakeable providers
-  -- ChangeDetection
-  -- Pipes puros
-  -- trackBy no \*ngFor
+  1. enableProdMode.
+  2. Carregamento tardio (Lazy Loading).
+  3. CRUD com a API do GitHub ou com objeto local (pode-se utilizar o Json Server).
+  4. Tree-shakeable providers.
+  5. ChangeDetection.
+  6. Pipes puros.
+  7. trackBy no \*ngFor.
 
 ### Execução
 
 - Para executar o app, deve-se executar primeira o **npm i** para a instalação dos pacotes de dependência.
 
 - Deve-se ter instalado o pacote do Json-Server para mock do back-end.
-  -- Para instalar o Json-Server deve-se executar o comando **npm i -g json-server**.
-  -- Na pasta src/assets/server há um arquivo json simulando o banco de dados com as informações mockadas da API do GitHub.
-  -- Para iniciar o json-server deve-se executado comando **json-server --watch users.json --port 3000** na pasta src/assets/server através do terminal.
+  1. Para instalar o Json-Server deve-se executar o comando **npm i -g json-server**.
+  2. Na pasta src/assets/server há um arquivo json simulando o banco de dados com as informações mockadas da API do GitHub, nomeado como users.json.
+  3. Para iniciar o json-server deve-se executado comando **json-server --watch users.json --port 3000** na pasta src/assets/server através do terminal.
 
 ### Autor
 
