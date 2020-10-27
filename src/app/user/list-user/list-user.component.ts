@@ -18,6 +18,7 @@ export class ListUserComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
+    this._filterBy = '';
     this.getUsers();
   }
 
@@ -47,6 +48,7 @@ export class ListUserComponent implements OnInit {
     this.userService.deletarPorId(id).subscribe({
       next: () => {
         console.log('Usuário deletado com sucesso.');
+        this._filterBy = '';
         this.getUsers();
       },
       error: (erro) => console.log('Erro ao deletar um usuário.', erro),

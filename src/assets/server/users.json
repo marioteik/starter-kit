@@ -321,7 +321,7 @@
       "site_admin": false
     },
     {
-      "login": "anotherjesse",
+      "login": "anotherjesse_alterado",
       "id": 27,
       "node_id": "MDQ6VXNlcjI3",
       "avatar_url": "https://avatars3.githubusercontent.com/u/27?v=4",
@@ -599,12 +599,6 @@
       "received_events_url": "https://api.github.com/users/bmizerany/received_events",
       "type": "User",
       "site_admin": false
-    },
-    {
-      "avatar_url": "http://www.ccta.ufpb.br/labeet/contents/acervos/categorias/cordofones/udecra/sem-imagem.jpg/@@images/image.jpeg",
-      "login": "Teste",
-      "type": "Teste",
-      "id": 47
     }
   ]
 }
