@@ -1,0 +1,53 @@
+<p>
+  Infelizmente pouco tempo disponível para fazer algo mais bonito.. Muitos compromissos profissionais neste final de
+  ano!
+</p>
+<p>
+  Não utilizei o git porque seria somente uma cópia do que apresentou, logo fiz um service com armazenamento em memória
+  mesmo dos dados
+</p>
+
+<div class="card" *ngIf="showMode == 'add'">
+  <div class="card-header">Lista de Usuários</div>
+
+  <div class="card-body">
+    <table style="width: 100%">
+      <thead>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Avatar</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of userList; trackBy: trackById">
+          <td>
+            <td-crud isNumber="true" [value]="item.code"></td-crud>
+          </td>
+          <td>
+            <td-crud [value]="item.name"></td-crud>
+          </td>
+          <td>
+            <td-crud [value]="item.avatar"></td-crud>
+          </td>
+          <td><a (click)="removeItem(item)">Remover</a></td>
+          <td><a (click)="editItem(item)">Editar</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header" *ngIf="showMode == 'add'">Adicionar novo usuário</div>
+  <div class="card-header" *ngIf="showMode == 'edit'">Editar Usuário</div>
+  <div class="card-body">
+    <label>Name</label>
+    <input type="text" [(ngModel)]="auxItem.name" />
+    <br />
+    <label>Avatar</label>
+    <input type="text" [(ngModel)]="auxItem.avatar" />
+    <br />
+    <button (click)="addUser()" *ngIf="showMode == 'add'">Adicionar</button>
+    <button (click)="updateUser()" *ngIf="showMode == 'edit'">Adicionar</button>
+    <button (click)="reset()">Cancelar</button>
+  </div>
+</div>
