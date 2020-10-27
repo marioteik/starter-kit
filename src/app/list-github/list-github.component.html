@@ -12,6 +12,8 @@
     <tr *ngFor="let user of users; trackBy: trackById">
       <td>
         <app-avatar-row [avatarUrl]="user.avatar_url" [userLogin]="user.login"></app-avatar-row>
+        <input size="10" placeholder="Avatar URL" #newUserAvatar />
+        <button (click)="editUser(user.id, newUserAvatar.value, user.login, user.type)">Edit</button>
       </td>
       <td>
         <app-login-row [userLogin]="user.login"></app-login-row>
