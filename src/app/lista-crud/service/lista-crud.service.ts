@@ -19,8 +19,8 @@ export class ListaCrudService {
     return this.http.post(this.url, user).pipe(take(1));
   }
 
-  patchUser(user: User) {
+  putUser(user: User) {
     const path: string = this.url + '/' + user.id;
-    return this.http.patch(path, user).pipe(take(1));
+    return this.http.put(path, user).pipe(take(1));
   }
 }
