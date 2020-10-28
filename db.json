@@ -1,3 +1,19 @@
 {
-  "users": [{ "id": 1, "nome": "Alex", "sobrenome": "Wedsday" }]
+  "users": [
+    {
+      "id": 1,
+      "nome": "Alex",
+      "sobrenome": "Wedsday"
+    },
+    {
+      "id": "2",
+      "nome": "Daniela ",
+      "sobrenome": "Galli"
+    },
+    {
+      "id": "3",
+      "nome": "João",
+      "sobrenome": "Silva"
+    }
+  ]
 }

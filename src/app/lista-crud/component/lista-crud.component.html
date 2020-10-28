@@ -1,14 +1,50 @@
-<table class="table table-hover table-strip">
-  <thead>
-    <td>#</td>
-    <td>nome</td>
-    <td>sobrenome</td>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of users">
-      <td>{{ user.id }}</td>
-      <td>{{ user.nome }}</td>
-      <td>{{ user.sobrenome }}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <div class="card" style="padding: 20px">
+    <form [formGroup]="form">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="inputId">Id</label>
+          <input type="text" class="form-control" id="inputId" formControlName="id" />
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputNome">Nome</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputNome"
+            formControlName="nome"
+            [ngClass]="{ 'is-invalid': enviado && hasError('nome') }"
+          />
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputSobrenome">Sobrenome</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputSobrenome"
+            formControlName="sobrenome"
+            [ngClass]="{ 'is-invalid': enviado && hasError('sobrenome') }"
+          />
+        </div>
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-primary mb-2" (click)="salvar()">Cadastar</button>
+          <button type="submit" class="btn btn-secondary mb-2" (click)="atualizar()">Atualizar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <table class="table table-hover table-striped">
+    <thead>
+      <td>#</td>
+      <td>nome</td>
+      <td>sobrenome</td>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.nome }}</td>
+        <td>{{ user.sobrenome }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
