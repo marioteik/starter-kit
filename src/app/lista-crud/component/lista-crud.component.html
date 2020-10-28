@@ -40,7 +40,7 @@
       <td>sobrenome</td>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users">
+      <tr *ngFor="let user of users; trackBy: byNome">
         <td>{{ user.id }}</td>
         <td>{{ user.nome }}</td>
         <td>{{ user.sobrenome }}</td>

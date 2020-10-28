@@ -50,13 +50,12 @@ export class ListaCrudComponent implements OnInit {
 
     if (this.form.value.id) {
       this.atualizar();
-    }
-
-    if (this.form.valid) {
+    } else if (this.form.valid) {
       this.service.postUser(this.form.value).subscribe(
         (env: User) => {
           this.users.push(new User(env.id, env.nome, env.sobrenome));
           this.changeDetection.markForCheck();
+          this.limpar();
         },
         (error) => {
           console.log(error);
@@ -78,13 +77,22 @@ export class ListaCrudComponent implements OnInit {
             }
           });
           this.changeDetection.markForCheck();
+          this.limpar();
         },
         (error) => {
-          console.log(error);
+          console.log('Id não existe');
         }
       );
     } else {
       console.log('Informe o Id');
     }
+  }
+
+  byNome(i: number, a: any) {
+    return a ? a.id : undefined;
+  }
+
+  limpar() {
+    this.form.reset();
   }
 }
